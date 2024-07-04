@@ -1,0 +1,11 @@
+[ 
+  {
+      "labels": {
+          "package": "nimbus-holesky.dnp.dappnode.eth",
+          "service": "beacon-validator.nimbus-holesky.dappnode"
+      },
+      "targets": [
+          "beacon-validator.nimbus-holesky.dappnode:8008"
+      ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "name": "nimbus.dnp.dappnode.eth",
+  "version": "1.0.13",
+  "links": {
+    "ui": "http://brain.web3signer.dappnode",
+    "homepage": "https://nimbus.team/",
+    "readme": "https://github.com/dappnode/DAppNodePackage-nimbus-generic",
+    "docs": "https://nimbus.guide"
+  },
+  "globalEnvs": [
+    {
+      "envs": ["EXECUTION_CLIENT_MAINNET", "MEVBOOST_MAINNET"],
+      "services": ["beacon-chain"]
+    },
+    {
+      "envs": ["MEVBOOST_MAINNET"],
+      "services": ["validator"]
+    }
+  ]
+}

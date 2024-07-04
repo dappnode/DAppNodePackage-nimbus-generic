@@ -1,0 +1,40 @@
+{
+  "upstream": [
+    {
+      "repo": "status-im/nimbus-eth2",
+      "version": "v24.6.0",
+      "arg": "UPSTREAM_VERSION"
+    },
+    {
+      "repo": "dappnode/staker-package-scripts",
+      "version": "v0.1.0",
+      "arg": "STAKER_SCRIPTS_VERSION"
+    }
+  ],
+  "architectures": ["linux/amd64"],
+  "shortDescription": "Nimbus ETH2.0 Beacon chain + validator",
+  "description": "Nimbus is a client implementation that strives to be as lightweight as possible in terms of resources used. This allows it to perform well on embedded systems, resource-restricted devices -- including Raspberry Pis and mobile devices -- and multi-purpose servers.",
+  "type": "service",
+  "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
+  "contributors": [
+    "pablo <pablo@dappnode.io> (https://github.com/pablomendezroyo)",
+    "marce <mgarciate@dappnode.io> (https://github.com/mgarciate)"
+  ],
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dappnode/DAppNodePackage-nimbus-generic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dappnode/DAppNodePackage-nimbus-generic/issues"
+  },
+  "categories": ["Blockchain", "ETH2.0"],
+  "chain": {
+    "driver": "ethereum-beacon-chain",
+    "serviceName": "beacon-chain",
+    "portNumber": 3500
+  },
+  "warnings": {
+    "onRemove": "Make sure your StakersUI does not have this client selected! Double check in the Stakers Tab in the left NavBar"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "nimbus-holesky.dnp.dappnode.eth",
+  "version": "0.1.2",
+  "links": {
+    "ui": "http://brain.web3signer-holesky.dappnode",
+    "homepage": "https://nimbus.team/",
+    "readme": "https://github.com/dappnode/DAppNodePackage-nimbus-generic",
+    "docs": "https://nimbus.guide"
+  },
+  "globalEnvs": [
+    {
+      "envs": ["EXECUTION_CLIENT_HOLESKY", "MEVBOOST_HOLESKY"],
+      "services": ["beacon-chain"]
+    },
+    {
+      "envs": ["MEVBOOST_HOLESKY"],
+      "services": ["validator"]
+    }
+  ]
+}

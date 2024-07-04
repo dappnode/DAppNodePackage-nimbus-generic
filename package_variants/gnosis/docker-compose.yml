@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  beacon-chain:
+    build:
+      args:
+        NETWORK: gnosis
+        P2P_PORT: 9706
+    ports:
+      - 9706:9706/tcp
+      - 9706:9706/udp
+  validator:
+    build:
+      args:
+        NETWORK: gnosis
