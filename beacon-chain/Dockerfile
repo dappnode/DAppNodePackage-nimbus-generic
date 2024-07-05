@@ -5,6 +5,8 @@ FROM statusim/nimbus-eth2:multiarch-${UPSTREAM_VERSION}
 ARG NETWORK
 ARG STAKER_SCRIPTS_VERSION
 
+USER root
+
 RUN apt-get update && apt-get install -y curl && apt-get clean
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
@@ -21,6 +23,6 @@ ENV JWT_SECRET_FILE=/jwtsecret \
 
 ADD ${STAKER_SCRIPTS_URL}/consensus_tools.sh /etc/profile.d/
 
-RUN mkdir -p ${VALIDATORS_DIR}
+RUN chmod +rx /usr/local/bin/entrypoint.sh /etc/profile.d/consensus_tools.sh
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]

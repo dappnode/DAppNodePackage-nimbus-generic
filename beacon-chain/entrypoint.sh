@@ -3,6 +3,9 @@
 SUPPORTED_NETWORKS="gnosis holesky mainnet"
 MEVBOOST_FLAGS="--payload-builder=true --payload-builder-url"
 
+# shellcheck disable=SC1091 # Path is relative to the Dockerfile
+. /etc/profile
+
 handle_checkpoint() {
     # Run checkpoint sync script if provided
     if [ -n "${CHECKPOINT_SYNC_URL}" ]; then
@@ -40,7 +43,7 @@ run_beacon() {
 }
 
 format_graffiti
-set_beacon_config_by_network "${SUPPORTED_NETWORKS}"
+set_beacon_config_by_network "${NETWORK}" "${SUPPORTED_NETWORKS}"
 handle_checkpoint
 set_mevboost_flag "${MEVBOOST_FLAGS}" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_beacon
