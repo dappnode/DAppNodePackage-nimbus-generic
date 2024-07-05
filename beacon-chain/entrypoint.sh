@@ -7,6 +7,12 @@ MEVBOOST_FLAGS="--payload-builder=true --payload-builder-url"
 . /etc/profile
 
 handle_checkpoint() {
+
+    if [ -n "$(ls -A "${DATA_DIR}/db")" ]; then
+        echo "[INFO - entrypoint] Data directory has already been initialized, skipping checkpoint sync."
+        return
+    fi
+
     # Run checkpoint sync script if provided
     if [ -n "${CHECKPOINT_SYNC_URL}" ]; then
         echo "[INFO - entrypoint] Running checkpoint sync script"
