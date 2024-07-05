@@ -8,7 +8,7 @@ MEVBOOST_FLAGS="--payload-builder=true --payload-builder-url"
 
 handle_checkpoint() {
 
-    if [ -n "$(ls -A "${DATA_DIR}/db")" ]; then
+    if [ -n "$(ls -A "${DATA_DIR}/db" 2>/dev/null)" ]; then
         echo "[INFO - entrypoint] Data directory has already been initialized, skipping checkpoint sync."
         return
     fi
