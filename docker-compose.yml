@@ -34,7 +34,7 @@ services:
       LOG_TYPE: INFO
       GRAFFITI: validating_from_DAppNode
       FEE_RECIPIENT: ""
-      ENABLE_DOPPELGANGER: true
+      ENABLE_DOPPELGANGER: "true"
       EXTRA_OPTS: ""
 
     restart: unless-stopped
