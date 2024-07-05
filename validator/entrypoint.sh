@@ -12,7 +12,7 @@ run_validator() {
     echo "[INFO - entrypoint] Running validator service"
 
     # shellcheck disable=SC2086
-    exec nimbus_validator_client \
+    exec ${NIMBUS_BIN} \
         --log-level="${LOG_TYPE}" \
         --doppelganger-detection="${ENABLE_DOPPELGANGER}" \
         --non-interactive=true \
@@ -27,7 +27,7 @@ run_validator() {
         --metrics-address=0.0.0.0 \
         --metrics-port=8008 \
         --graffiti="${GRAFFITI}" \
-        --beacon-node="${BEACON_NODE_API_URL}" ${EXTRA_OPTS}
+        --beacon-node="${BEACON_API_URL}" ${EXTRA_OPTS}
 }
 
 format_graffiti
