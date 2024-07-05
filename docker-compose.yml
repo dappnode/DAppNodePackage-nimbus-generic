@@ -1,5 +1,12 @@
 version: "3.6"
 services:
+  # Proxy to forward legacy requests to beacon-validator instead of beacon-chain or validator
+  beacon-validator:
+    build:
+      context: proxy
+    depends_on:
+      - beacon-chain
+      - validator
 
   beacon-chain:
     build:
