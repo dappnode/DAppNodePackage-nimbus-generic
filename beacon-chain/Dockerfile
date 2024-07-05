@@ -3,6 +3,7 @@ ARG UPSTREAM_VERSION
 FROM statusim/nimbus-eth2:multiarch-${UPSTREAM_VERSION}
 
 ARG NETWORK
+ARG P2P_PORT
 ARG STAKER_SCRIPTS_VERSION
 
 USER root
@@ -15,6 +16,7 @@ COPY jwtsecret.hex /jwtsecret
 ENV JWT_SECRET_FILE=/jwtsecret \
     NETWORK=${NETWORK} \
     VALIDATOR_PORT=3500 \
+    P2P_PORT=${P2P_PORT} \
     NIMBUS_BIN="/home/user/nimbus_beacon_node" \
     DATA_DIR="/home/user/nimbus-eth2/build/data" \
     TOKEN_FILE="${DATA_DIR}/auth-token" \
