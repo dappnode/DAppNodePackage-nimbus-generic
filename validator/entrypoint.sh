@@ -22,7 +22,7 @@ run_validator() {
         --keymanager-port=3500 \
         --keymanager-address=0.0.0.0 \
         --keymanager-allow-origin=* \
-        --keymanager-token-file="${AUTH_TOKEN_PATH}" \
+        --keymanager-token-file="${VALIDATOR_API_TOKEN_PATH}" \
         --metrics=true \
         --metrics-address=0.0.0.0 \
         --metrics-port=8008 \
