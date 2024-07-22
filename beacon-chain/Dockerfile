@@ -3,26 +3,29 @@ ARG UPSTREAM_VERSION
 FROM statusim/nimbus-eth2:multiarch-${UPSTREAM_VERSION}
 
 ARG NETWORK
-ARG P2P_PORT
 ARG STAKER_SCRIPTS_VERSION
-
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-COPY jwtsecret.hex /jwtsecret
+ARG DATA_DIR
+ARG P2P_PORT
 
 ENV JWT_SECRET_FILE=/jwtsecret \
-    NETWORK=${NETWORK} \
     VALIDATOR_PORT=3500 \
+    DATA_DIR=${DATA_DIR} \
     P2P_PORT=${P2P_PORT} \
     NIMBUS_BIN="/home/user/nimbus_beacon_node" \
-    DATA_DIR="/home/user/nimbus-eth2/build/data" \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY jwtsecret.hex ${JWT_SECRET_FILE}
 
 ADD ${STAKER_SCRIPTS_URL}/consensus_tools.sh /etc/profile.d/
 
 USER root
-RUN apt-get update && apt-get install -y curl && apt-get clean
-USER user
 
-RUN chmod +rx /usr/local/bin/entrypoint.sh /etc/profile.d/consensus_tools.sh
+RUN apt-get update && apt-get --yes install curl && apt-get clean && \
+    chmod +rx /usr/local/bin/entrypoint.sh /etc/profile.d/consensus_tools.sh
+
+# This env changes the variant
+# Placed at the end to regenerate the least amount of layers
+ENV NETWORK=${NETWORK}
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]

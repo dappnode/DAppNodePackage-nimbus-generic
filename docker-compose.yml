@@ -14,6 +14,7 @@ services:
       args:
         UPSTREAM_VERSION: v24.6.0
         STAKER_SCRIPTS_VERSION: v0.1.0
+        DATA_DIR: /home/user/nimbus-eth2/build/data
     environment:
       LOG_TYPE: INFO
       FEE_RECIPIENT: ""
@@ -30,14 +31,18 @@ services:
       args:
         UPSTREAM_VERSION: v24.6.0
         STAKER_SCRIPTS_VERSION: v0.1.0
+        DATA_DIR: /home/user/nimbus-eth2/build/data
     environment:
       LOG_TYPE: INFO
       GRAFFITI: validating_from_DAppNode
       FEE_RECIPIENT: ""
       ENABLE_DOPPELGANGER: "true"
       EXTRA_OPTS: ""
+    volumes:
+      - nimbus-validators-data:/home/user/nimbus-eth2/build/data
 
     restart: unless-stopped
     stop_grace_period: 1m
 volumes:
   nimbus-data: {}
+  nimbus-validators-data: {}
