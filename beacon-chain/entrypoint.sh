@@ -1,14 +1,16 @@
 #!/bin/sh
 
-SUPPORTED_NETWORKS="gnosis holesky mainnet"
 MEVBOOST_FLAG_KEYS="--payload-builder=true --payload-builder-url"
 
 # shellcheck disable=SC1091 # Path is relative to the Dockerfile
 . /etc/profile
 
-ENGINE_URL=$(get_engine_api_url "${NETWORK}" "${SUPPORTED_NETWORKS}")
+ENGINE_URL="http://execution.${NETWORK}.staker.dappnode:8551"
 VALID_FEE_RECIPIENT=$(get_valid_fee_recipient "${FEE_RECIPIENT}")
 MEVBOOST_FLAG=$(get_mevboost_flag "${NETWORK}" "${MEVBOOST_FLAG_KEYS}")
+
+JWT_SECRET=$(get_jwt_secret_by_network "${NETWORK}")
+echo "${JWT_SECRET}" >"${JWT_FILE_PATH}"
 
 if [ -n "$(ls -A "${DATA_DIR}/db" 2>/dev/null)" ]; then
     echo "[INFO - entrypoint] Data directory has already been initialized, skipping checkpoint sync."
