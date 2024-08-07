@@ -1,5 +1,10 @@
 version: "3.5"
 services:
+  beacon-validator:
+    build:
+      args:
+        NETWORK: gnosis
+
   beacon-chain:
     build:
       args:
