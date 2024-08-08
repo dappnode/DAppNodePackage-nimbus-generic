@@ -1,6 +1,6 @@
 {
   "name": "nimbus-holesky.dnp.dappnode.eth",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "links": {
     "ui": "http://brain.web3signer-holesky.dappnode",
     "homepage": "https://nimbus.team/",
