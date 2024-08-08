@@ -7,7 +7,7 @@ ARG STAKER_SCRIPTS_VERSION
 ARG DATA_DIR
 ARG P2P_PORT
 
-ENV JWT_SECRET_FILE=/jwtsecret \
+ENV JWT_SECRET_FILE=/jwtsecret.hex \
     VALIDATOR_PORT=3500 \
     DATA_DIR=${DATA_DIR} \
     P2P_PORT=${P2P_PORT} \
@@ -15,7 +15,6 @@ ENV JWT_SECRET_FILE=/jwtsecret \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-COPY jwtsecret.hex ${JWT_SECRET_FILE}
 
 ADD ${STAKER_SCRIPTS_URL}/consensus_tools.sh /etc/profile.d/
 
