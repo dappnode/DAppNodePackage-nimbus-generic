@@ -6,15 +6,5 @@
     "homepage": "https://nimbus.team/",
     "readme": "https://github.com/dappnode/DAppNodePackage-nimbus-generic",
     "docs": "https://nimbus.guide"
-  },
-  "globalEnvs": [
-    {
-      "envs": ["EXECUTION_CLIENT_GNOSIS", "MEVBOOST_GNOSIS"],
-      "services": ["beacon-chain"]
-    },
-    {
-      "envs": ["MEVBOOST_GNOSIS"],
-      "services": ["validator"]
-    }
-  ]
+  }
 }
