@@ -10,7 +10,7 @@ VALID_FEE_RECIPIENT=$(get_valid_fee_recipient "${FEE_RECIPIENT}")
 MEVBOOST_FLAG=$(get_mevboost_flag "${NETWORK}" "${MEVBOOST_FLAG_KEYS}")
 
 JWT_SECRET=$(get_jwt_secret_by_network "${NETWORK}")
-touch "${JWT_SECRET_FILE}"
+touch "${JWT_FILE_PATH}"
 echo "${JWT_SECRET}" >"${JWT_FILE_PATH}"
 
 if [ -n "$(ls -A "${DATA_DIR}/db" 2>/dev/null)" ]; then
@@ -44,6 +44,6 @@ exec ${NIMBUS_BIN} \
     --metrics \
     --metrics-address=0.0.0.0 \
     --metrics-port=8008 \
-    --jwt-secret="${JWT_SECRET_FILE}" \
+    --jwt-secret="${JWT_FILE_PATH}" \
     --web3-url="${ENGINE_URL}" \
     --suggested-fee-recipient="${VALID_FEE_RECIPIENT}" ${MEVBOOST_FLAG} ${EXTRA_OPTS}
