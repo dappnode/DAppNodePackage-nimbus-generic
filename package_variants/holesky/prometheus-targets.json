@@ -1,11 +1,20 @@
 [ 
-  {
-      "labels": {
-          "package": "nimbus-holesky.dnp.dappnode.eth",
-          "service": "beacon-validator.nimbus-holesky.dappnode"
-      },
-      "targets": [
-          "beacon-validator.nimbus-holesky.dappnode:8008"
-      ]
-  }
+    {
+        "labels": {
+            "package": "nimbus-holesky.dnp.dappnode.eth",
+            "service": "beacon-chain.nimbus-holesky.dappnode"
+        },
+        "targets": [
+            "beacon-chain.nimbus-holesky.dappnode:8008"
+        ]
+    },
+    {
+        "labels": {
+            "package": "nimbus-holesky.dnp.dappnode.eth",
+            "service": "validator.nimbus-holesky.dappnode"
+        },
+        "targets": [
+            "validator.nimbus-holesky.dappnode:8008"
+        ]
+    }
 ]
