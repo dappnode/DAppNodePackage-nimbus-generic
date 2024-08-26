@@ -1,11 +1,20 @@
 [ 
-  {
-      "labels": {
-          "package": "nimbus.dnp.dappnode.eth",
-          "service": "beacon-validator.nimbus.dappnode"
-      },
-      "targets": [
-          "beacon-validator.nimbus.dappnode:8008"
-      ]
-  }
+    {
+        "labels": {
+            "package": "nimbus.dnp.dappnode.eth",
+            "service": "beacon-chain.nimbus.dappnode"
+        },
+        "targets": [
+            "beacon-chain.nimbus.dappnode:8008"
+        ]
+    },
+    {
+        "labels": {
+            "package": "nimbus.dnp.dappnode.eth",
+            "service": "validator.nimbus.dappnode"
+        },
+        "targets": [
+            "validator.nimbus.dappnode:8008"
+        ]
+    }
 ]
