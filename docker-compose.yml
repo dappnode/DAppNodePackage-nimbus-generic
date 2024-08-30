@@ -1,18 +1,16 @@
 version: "3.6"
 services:
-  # Proxy to forward legacy requests to beacon-validator instead of beacon-chain or validator
   beacon-validator:
     build:
       context: proxy
     depends_on:
       - beacon-chain
       - validator
-
   beacon-chain:
     build:
       context: beacon-chain
       args:
-        UPSTREAM_VERSION: v24.6.0
+        UPSTREAM_VERSION: v24.8.0
         STAKER_SCRIPTS_VERSION: v0.1.0
         DATA_DIR: /home/user/nimbus-eth2/build/data
     environment:
@@ -24,12 +22,11 @@ services:
       - nimbus-data:/home/user/nimbus-eth2/build/data
     restart: unless-stopped
     stop_grace_period: 1m
-
   validator:
     build:
       context: validator
       args:
-        UPSTREAM_VERSION: v24.6.0
+        UPSTREAM_VERSION: v24.8.0
         STAKER_SCRIPTS_VERSION: v0.1.0
         DATA_DIR: /home/user/nimbus-eth2/build/data
     environment:
@@ -40,7 +37,6 @@ services:
       EXTRA_OPTS: ""
     volumes:
       - nimbus-validators-data:/home/user/nimbus-eth2/build/data
-
     restart: unless-stopped
     stop_grace_period: 1m
 volumes:
