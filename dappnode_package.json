@@ -35,7 +35,8 @@
     "portNumber": 3500
   },
   "warnings": {
-    "onRemove": "Make sure your StakersUI does not have this client selected! Double check in the Stakers Tab in the left NavBar"
+    "onRemove": "Make sure your StakersUI does not have this client selected! Double check in the Stakers Tab in the left NavBar",
+    "onMajorUpdate": "This major update requires you to reconfigure your previous settings."
   },
   "minimumDappnodeVersion": "0.2.97"
 }
