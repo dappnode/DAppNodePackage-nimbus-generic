@@ -8,7 +8,7 @@
     "docs": "https://nimbus.guide"
   },
   "optionalDependencies": {
-    "nethermind-xdai.dnp.dappnode.eth": ">=1.0.47",
+    "nethermind-xdai.dnp.dappnode.eth": ">=1.0.48",
     "gnosis-erigon.dnp.dappnode.eth": ">=0.1.2"
   }
 }
