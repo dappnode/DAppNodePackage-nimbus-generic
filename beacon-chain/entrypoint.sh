@@ -29,21 +29,22 @@ else
     echo "[WARN - entrypoint] No checkpoint sync script provided. Syncing from genesis."
 fi
 
-echo "[INFO - entrypoint] Running beacon node service"
-
-# shellcheck disable=SC2086
-exec ${NIMBUS_BIN} \
-    --network="${NETWORK}" \
-    --data-dir="${DATA_DIR}" \
-    --tcp-port="${P2P_PORT}" \
-    --udp-port="${P2P_PORT}" \
-    --log-level="${LOG_TYPE}" \
+FLAGS="--network=$NETWORK \
+    --data-dir=$DATA_DIR \
+    --tcp-port=$P2P_PORT \
+    --udp-port=$P2P_PORT \
+    --log-level=$LOG_TYPE \
     --rest \
     --rest-port=3500 \
     --rest-address=0.0.0.0 \
     --metrics \
     --metrics-address=0.0.0.0 \
     --metrics-port=8008 \
-    --jwt-secret="${JWT_FILE_PATH}" \
-    --web3-url="${ENGINE_URL}" \
-    --suggested-fee-recipient="${VALID_FEE_RECIPIENT}" ${MEVBOOST_FLAG} ${EXTRA_OPTS}
+    --jwt-secret=$JWT_FILE_PATH \
+    --web3-url=$ENGINE_URL \
+    --suggested-fee-recipient=$VALID_FEE_RECIPIENT $MEVBOOST_FLAG $EXTRA_OPTS"
+
+echo "[INFO - entrypoint] Starting beacon with flags: $FLAGS"
+
+# shellcheck disable=SC2086
+exec ${NIMBUS_BIN} $FLAGS

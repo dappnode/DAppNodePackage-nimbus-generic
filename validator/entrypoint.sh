@@ -16,21 +16,22 @@ MEVBOOST_FLAG=$(get_mevboost_flag "${NETWORK}" "${MEVBOOST_FLAG_KEY}" "${SKIP_ME
 
 echo "[INFO - entrypoint] Running validator service"
 
-# shellcheck disable=SC2086
-exec ${NIMBUS_BIN} \
-    --log-level="${LOG_TYPE}" \
-    --data-dir="${DATA_DIR}" \
-    --doppelganger-detection="${ENABLE_DOPPELGANGER}" \
+FLAGS="--log-level=$LOG_TYPE \
+    --data-dir=$DATA_DIR \
+    --doppelganger-detection=$ENABLE_DOPPELGANGER \
     --non-interactive \
-    --web3-signer-url="${SIGNER_API_URL}" \
-    --suggested-fee-recipient="${VALID_FEE_RECIPIENT}" \
+    --web3-signer-url=$SIGNER_API_URL \
+    --suggested-fee-recipient=$VALID_FEE_RECIPIENT \
     --keymanager=true \
     --keymanager-port=3500 \
     --keymanager-address=0.0.0.0 \
     --keymanager-allow-origin=* \
-    --keymanager-token-file="${VALIDATOR_API_TOKEN_PATH}" \
+    --keymanager-token-file=$VALIDATOR_API_TOKEN_PATH \
     --metrics=true \
     --metrics-address=0.0.0.0 \
     --metrics-port=8008 \
-    --graffiti="${VALID_GRAFFITI}" \
-    --beacon-node="${BEACON_API_URL}" ${MEVBOOST_FLAG} ${EXTRA_OPTS}
+    --graffiti=$VALID_GRAFFITI \
+    --beacon-node=$BEACON_API_URL $MEVBOOST_FLAG $EXTRA_OPTS"
+
+# shellcheck disable=SC2086
+exec ${NIMBUS_BIN} $FLAGS
