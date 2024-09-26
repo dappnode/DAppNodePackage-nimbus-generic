@@ -6,7 +6,7 @@ MEVBOOST_FLAG_KEYS="--payload-builder=true --payload-builder-url"
 . /etc/profile
 
 ENGINE_URL="http://execution.${NETWORK}.staker.dappnode:8551"
-VALID_FEE_RECIPIENT=$(get_valid_fee_recipient "${FEE_RECIPIENT}")
+VALID_FEE_RECIPIENT=$(get_valid_fee_recipient "${FEE_RECIPIENT_ADDRESS}")
 MEVBOOST_FLAG=$(get_mevboost_flag "${NETWORK}" "${MEVBOOST_FLAG_KEYS}")
 
 JWT_SECRET=$(get_jwt_secret_by_network "${NETWORK}")
