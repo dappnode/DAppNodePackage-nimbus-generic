@@ -2,7 +2,7 @@
   "upstream": [
     {
       "repo": "status-im/nimbus-eth2",
-      "version": "v24.8.0",
+      "version": "v24.9.0",
       "arg": "UPSTREAM_VERSION"
     },
     {
