@@ -39,6 +39,6 @@
     "onMajorUpdate": "This major update requires you to reconfigure your previous settings."
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.97"
+    "minimumDappnodeVersion": "0.2.101"
   }
 }
