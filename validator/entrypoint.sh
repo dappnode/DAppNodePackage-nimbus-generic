@@ -31,7 +31,7 @@ FLAGS="--log-level=$LOG_TYPE \
     --metrics-address=0.0.0.0 \
     --metrics-port=8008 \
     --graffiti=$VALID_GRAFFITI \
-    --beacon-node=$BEACON_API_URL $MEVBOOST_FLAG $EXTRA_OPTS"
+    --beacon-node=${BACKUP_BEACON_NODE:-$BEACON_API_URL} $MEVBOOST_FLAG $EXTRA_OPTS"
 
 # shellcheck disable=SC2086
 exec ${NIMBUS_BIN} $FLAGS
