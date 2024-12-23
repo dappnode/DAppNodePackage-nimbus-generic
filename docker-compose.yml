@@ -34,6 +34,7 @@ services:
       GRAFFITI: validating_from_DAppNode
       FEE_RECIPIENT_ADDRESS: ""
       ENABLE_DOPPELGANGER: "true"
+      BACKUP_BEACON_NODE: ""
       EXTRA_OPTS: ""
     volumes:
       - nimbus-validators-data:/home/user/nimbus-eth2/build/data
