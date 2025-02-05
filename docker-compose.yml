@@ -19,7 +19,7 @@ services:
       CHECKPOINT_SYNC_URL: ""
       EXTRA_OPTS: ""
     volumes:
-      - nimbus-data:/home/user/nimbus-eth2/build/data
+      - nimbus-holesky-data:/home/user/nimbus-eth2/build/data
     restart: unless-stopped
     stop_grace_period: 1m
   validator:
@@ -40,5 +40,5 @@ services:
     restart: unless-stopped
     stop_grace_period: 1m
 volumes:
-  nimbus-data: {}
   nimbus-validators-data: {}
+  nimbus-holesky-data: {}
