@@ -13,6 +13,19 @@ JWT_SECRET=$(get_jwt_secret_by_network "${NETWORK}")
 touch "${JWT_FILE_PATH}"
 echo "${JWT_SECRET}" >"${JWT_FILE_PATH}"
 
+# Ensure the removal of ${DATA_DIR}/validators if it exists
+if [ -d "${DATA_DIR}/validators" ]; then
+    echo "[INFO - entrypoint] Found existing validators directory at ${DATA_DIR}/validators. Removing it."
+    if rm -rf "${DATA_DIR}/validators"; then
+        echo "[INFO - entrypoint] Successfully removed ${DATA_DIR}/validators."
+    else
+        echo "[ERROR - entrypoint] Failed to remove ${DATA_DIR}/validators. Exiting."
+        exit 1
+    fi
+else
+    echo "[INFO - entrypoint] No validators directory found. Proceeding."
+fi
+
 if [ -n "$(ls -A "${DATA_DIR}/db" 2>/dev/null)" ]; then
     echo "[INFO - entrypoint] Data directory has already been initialized, skipping checkpoint sync."
 
