@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SUPPORTED_NETWORKS="gnosis holesky mainnet"
+SUPPORTED_NETWORKS="gnosis holesky hoodi mainnet"
 MEVBOOST_FLAG_KEY="--payload-builder=true"
 SKIP_MEVBOOST_URL="true"
 CLIENT="nimbus"

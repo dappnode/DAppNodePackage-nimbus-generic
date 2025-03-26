@@ -1,0 +1,19 @@
+version: "3.5"
+services:
+  beacon-validator:
+    build:
+      args:
+        NETWORK: hoodi
+
+  beacon-chain:
+    build:
+      args:
+        NETWORK: hoodi
+        P2P_PORT: 9806
+    ports:
+      - 9806:9806/tcp
+      - 9806:9806/udp
+  validator:
+    build:
+      args:
+        NETWORK: hoodi

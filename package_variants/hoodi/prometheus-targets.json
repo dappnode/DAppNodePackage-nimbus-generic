@@ -1,0 +1,20 @@
+[ 
+    {
+        "labels": {
+            "package": "nimbus-hoodi.dnp.dappnode.eth",
+            "service": "beacon-chain.nimbus-hoodi.dappnode"
+        },
+        "targets": [
+            "beacon-chain.nimbus-hoodi.dappnode:8008"
+        ]
+    },
+    {
+        "labels": {
+            "package": "nimbus-hoodi.dnp.dappnode.eth",
+            "service": "validator.nimbus-hoodi.dappnode"
+        },
+        "targets": [
+            "validator.nimbus-hoodi.dappnode:8008"
+        ]
+    }
+]

@@ -1,0 +1,16 @@
+{
+  "name": "nimbus-hoodi.dnp.dappnode.eth",
+  "version": "0.1.4",
+  "links": {
+    "ui": "http://brain.web3signer-hoodi.dappnode",
+    "homepage": "https://nimbus.team/",
+    "readme": "https://github.com/dappnode/DAppNodePackage-nimbus-generic",
+    "docs": "https://nimbus.guide"
+  },
+  "globalEnvs": [
+    {
+      "envs": ["MEVBOOST_HOODI"],
+      "services": ["validator", "beacon-chain"]
+    }
+  ]
+}
