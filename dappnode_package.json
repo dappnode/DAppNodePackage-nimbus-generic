@@ -2,12 +2,12 @@
   "upstream": [
     {
       "repo": "status-im/nimbus-eth2",
-      "version": "v25.2.0",
+      "version": "v25.3.1",
       "arg": "UPSTREAM_VERSION"
     },
     {
       "repo": "dappnode/staker-package-scripts",
-      "version": "v0.1.1",
+      "version": "v0.1.2",
       "arg": "STAKER_SCRIPTS_VERSION"
     }
   ],
