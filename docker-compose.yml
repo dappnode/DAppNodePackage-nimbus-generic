@@ -17,6 +17,7 @@ services:
       LOG_TYPE: INFO
       FEE_RECIPIENT_ADDRESS: ""
       CHECKPOINT_SYNC_URL: ""
+      CORS: "*"
       EXTRA_OPTS: ""
     volumes:
       - nimbus-data:/home/user/nimbus-eth2/build/data

@@ -55,6 +55,7 @@ FLAGS="--network=$NETWORK \
     --metrics-port=8008 \
     --jwt-secret=$JWT_FILE_PATH \
     --web3-url=$ENGINE_URL \
+    --rest-allow-origin=$CORS \
     --suggested-fee-recipient=$VALID_FEE_RECIPIENT $MEVBOOST_FLAG $EXTRA_OPTS"
 
 echo "[INFO - entrypoint] Starting beacon with flags: $FLAGS"
