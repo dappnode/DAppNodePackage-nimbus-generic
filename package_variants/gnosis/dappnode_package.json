@@ -1,6 +1,6 @@
 {
   "name": "nimbus-gnosis.dnp.dappnode.eth",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "links": {
     "ui": "http://brain.web3signer-gnosis.dappnode",
     "homepage": "https://nimbus.team/",
