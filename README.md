@@ -2,7 +2,7 @@
 
 **Nimbus ETH2.0 Beacon chain + validator**
 
-From this repository, Dappnode Nimbus package can be generated for 3 networks: holesky, hoodi, mainnet and gnosis
+From this repository, the Dappnode Nimbus package can be generated for 3 networks: the Hoodi Testnet, Ethereum Mainnet and Gnosis Chain.
 
 Nimbus is a client implementation for both the consensus layer (eth2) and execution layer (eth1) that strives to be as lightweight as possible in terms of resources used. This allows it to perform well on embedded systems, resource-restricted devices (including Raspberry Pis and mobile devices).
 
