@@ -36,6 +36,7 @@ services:
       FEE_RECIPIENT_ADDRESS: ""
       ENABLE_DOPPELGANGER: "true"
       EXTRA_OPTS: ""
+      BACKUP_BEACON_NODES: ""
     volumes:
       - nimbus-validators-data:/home/user/nimbus-eth2/build/data
     restart: unless-stopped
