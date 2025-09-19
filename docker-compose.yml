@@ -10,7 +10,7 @@ services:
     build:
       context: beacon-chain
       args:
-        UPSTREAM_VERSION: v25.7.1
+        UPSTREAM_VERSION: v25.9.0
         STAKER_SCRIPTS_VERSION: v0.1.2
         DATA_DIR: /home/user/nimbus-eth2/build/data
     environment:
@@ -27,7 +27,7 @@ services:
     build:
       context: validator
       args:
-        UPSTREAM_VERSION: v25.7.1
+        UPSTREAM_VERSION: v25.9.0
         STAKER_SCRIPTS_VERSION: v0.1.2
         DATA_DIR: /home/user/nimbus-eth2/build/data
     environment:
