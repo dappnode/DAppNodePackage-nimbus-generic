@@ -14,6 +14,14 @@ SIGNER_API_URL=$(get_signer_api_url "${NETWORK}" "${SUPPORTED_NETWORKS}")
 BEACON_API_URL=$(get_beacon_api_url "${NETWORK}" "${SUPPORTED_NETWORKS}" "${CLIENT}")
 MEVBOOST_FLAG=$(get_mevboost_flag "${NETWORK}" "${MEVBOOST_FLAG_KEY}" "${SKIP_MEVBOOST_URL}")
 
+
+BACKUP_BEACON_FLAGS=""
+if [ -n "${BACKUP_BEACON_NODES}" ]; then
+    for node in $(echo "${BACKUP_BEACON_NODES}" | tr ',' ' '); do
+        BACKUP_BEACON_FLAGS="${BACKUP_BEACON_FLAGS}--beacon-node=${node} "
+    done
+fi
+
 echo "[INFO - entrypoint] Running validator service"
 
 FLAGS="--log-level=$LOG_TYPE \
@@ -31,7 +39,9 @@ FLAGS="--log-level=$LOG_TYPE \
     --metrics-address=0.0.0.0 \
     --metrics-port=8008 \
     --graffiti=$VALID_GRAFFITI \
-    --beacon-node=$BEACON_API_URL $MEVBOOST_FLAG $EXTRA_OPTS"
+    --beacon-node=$BEACON_API_URL \
+    $BACKUP_BEACON_FLAGS \
+    $MEVBOOST_FLAG $EXTRA_OPTS"
 
 # shellcheck disable=SC2086
 exec ${NIMBUS_BIN} $FLAGS
