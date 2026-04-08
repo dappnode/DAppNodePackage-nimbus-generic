@@ -11,8 +11,10 @@ services:
         NETWORK: gnosis
         P2P_PORT: 9706
     ports:
-      - 9706:9706/tcp
+      - 9706:9706
       - 9706:9706/udp
+    environment:
+      CHECKPOINT_SYNC_URL: "https://checkpoint-sync-gnosis.dappnode.net"
   validator:
     build:
       args:
