@@ -12,4 +12,6 @@ on:
 jobs:
   bump-upstream:
     uses: dappnode/workflows/.github/workflows/bump-upstream.yml@master
+    with:
+      docker_tag_pattern: "multiarch-{version}"
     secrets: inherit
