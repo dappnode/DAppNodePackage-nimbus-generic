@@ -35,7 +35,7 @@
     {
       "arg": "UPSTREAM_VERSION",
       "repo": "status-im/nimbus-eth2",
-      "version": "v26.6.0"
+      "version": "v26.6.2"
     },
     {
       "arg": "STAKER_SCRIPTS_VERSION",
