@@ -10,5 +10,12 @@
     "gnosis-erigon.dnp.dappnode.eth": ">=0.1.2",
     "nethermind-xdai.dnp.dappnode.eth": ">=1.0.48"
   },
-  "version": "0.1.6"
+  "version": "0.1.7",
+  "upstream": [
+    {
+      "arg": "UPSTREAM_VERSION",
+      "repo": "status-im/nimbus-eth2",
+      "version": "v26.5.0"
+    }
+  ]
 }
