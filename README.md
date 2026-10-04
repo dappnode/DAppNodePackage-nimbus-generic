@@ -18,6 +18,8 @@ For the **Gnosis** variant specifically, the package should use the Gnosis-maint
 
 Gnosis images publish plain version tags, while the default Status images publish `multiarch-` prefixed tags. The Dockerfiles keep the default `statusim/*:multiarch-${UPSTREAM_VERSION}` behavior, and the Gnosis variant overrides both the image repository and image tag explicitly.
 
+The Gnosis variant pins its own `UPSTREAM_VERSION` and manifest upstream version to the version of these fork images. This pin is independent of Ethereum Mainnet and Hoodi. Updating the Gnosis client requires changing both services’ `UPSTREAM_VERSION`, both explicit base-image tags, and the Gnosis manifest together; a root upstream bump must not change the reported Gnosis version.
+
 For Gnosis users, this generic package should be treated as the canonical multiclient package path instead of maintaining a separate single-service packaging model.
 
 Nimbus is a client implementation for both the consensus layer (eth2) and execution layer (eth1) that strives to be as lightweight as possible in terms of resources used. This allows it to perform well on embedded systems, resource-restricted devices (including Raspberry Pis and mobile devices).

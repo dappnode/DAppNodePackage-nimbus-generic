@@ -10,6 +10,7 @@ services:
       args:
         NETWORK: gnosis
         P2P_PORT: 9706
+        UPSTREAM_VERSION: v26.5.0
         BEACON_BASE_IMAGE: ghcr.io/gnosischain/gnosis-nimbus-eth2
         BEACON_BASE_IMAGE_TAG: v26.5.0
     ports:
@@ -21,5 +22,6 @@ services:
     build:
       args:
         NETWORK: gnosis
+        UPSTREAM_VERSION: v26.5.0
         VALIDATOR_BASE_IMAGE: ghcr.io/gnosischain/gnosis-nimbus-validator-client
         VALIDATOR_BASE_IMAGE_TAG: v26.5.0
