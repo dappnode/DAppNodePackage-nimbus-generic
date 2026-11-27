@@ -32,11 +32,17 @@ if [ -n "$(ls -A "${DATA_DIR}/db" 2>/dev/null)" ]; then
 elif [ -n "${CHECKPOINT_SYNC_URL}" ]; then
     echo "[INFO - entrypoint] Running checkpoint sync script"
 
-    ${NIMBUS_BIN} trustedNodeSync \
+    if ! ${NIMBUS_BIN} trustedNodeSync \
         --network="${NETWORK}" \
         --trusted-node-url="${CHECKPOINT_SYNC_URL}" \
         --backfill=false \
-        --data-dir="${DATA_DIR}"
+        --data-dir="${DATA_DIR}"; then
+        # Remove the partial database so the next start retries checkpoint sync
+        # instead of skipping it and syncing from genesis.
+        echo "[ERROR - entrypoint] Checkpoint sync from ${CHECKPOINT_SYNC_URL} failed. Exiting so the container restarts and retries. To sync from genesis instead, clear the checkpoint sync URL."
+        rm -rf "${DATA_DIR}/db"
+        exit 1
+    fi
 
 else
     echo "[WARN - entrypoint] No checkpoint sync script provided. Syncing from genesis."
